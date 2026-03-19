@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>🚂 Управление поездами</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Шапка приложения -->
+        <header class="app-header">
+            <div class="header-left">
+                <i class="fas fa-bars menu-toggle" id="menuToggle"></i>
+                <h1 class="app-title">🚂 Управление поездами</h1>
+            </div>
+            <div class="header-right">
+                <span class="user-info" id="userInfo"></span>
+                <button class="icon-btn" id="logoutBtn" title="Выйти">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Боковое меню -->
+        <nav class="sidebar" id="sidebar">
+            <ul class="sidebar-menu">
+                <li class="menu-item active" data-page="calendar">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Календарь</span>
+                </li>
+                <li class="menu-item" data-page="trains">
+                    <i class="fas fa-train"></i>
+                    <span>Поезда</span>
+                </li>
+                <li class="menu-item" data-page="search">
+                    <i class="fas fa-search"></i>
+                    <span>Поиск вагона</span>
+                </li>
+                <li class="menu-item" data-page="detached">
+                    <i class="fas fa-box"></i>
+                    <span>Отцеп</span>
+                </li>
+                <li class="menu-item" data-page="users" id="usersMenuItem" style="display: none;">
+                    <i class="fas fa-users"></i>
+                    <span>Пользователи</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Основной контент -->
+        <main class="main-content" id="mainContent">
+            <!-- Страница загрузки -->
+            <div class="loading-page" id="loadingPage">
+                <div class="spinner"></div>
+                <p>Загрузка...</p>
+            </div>
+            
+            <!-- Страницы будут загружаться сюда динамически -->
+            <div id="pageContent"></div>
+        </main>
+
+        <!-- Модальные окна -->
+        <div class="modal-overlay" id="modalOverlay" style="display: none;">
+            <div class="modal-container" id="modalContainer">
+                <!-- Контент модального окна будет вставляться сюда -->
+            </div>
+        </div>
+
+        <!-- Уведомления -->
+        <div class="toast-container" id="toastContainer"></div>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

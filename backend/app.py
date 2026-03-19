@@ -1,3 +1,4 @@
+import sys
 import os
 from flask import Flask , request , jsonify , send_from_directory
 from flask_cors import CORS
@@ -6,6 +7,20 @@ from database import SupabaseDatabase
 from auth import user_manager , generate_token , token_required , role_required
 from config import Config
 
+print("=" * 50)
+print("🚂 STARTING RAILWAY MANAGEMENT SYSTEM")
+print("=" * 50)
+print(f"Current directory: {os.getcwd()}")
+print(f"Files in current directory: {os.listdir('.')}")
+print(f"Python path: {sys.path}")
+print("=" * 50)
+
+try:
+    from flask import Flask
+    print("✅ Flask imported successfully")
+except ImportError as e:
+    print(f"❌ Flask import failed: {e}")
+    
 app = Flask ( __name__ , static_folder = '../frontend' , static_url_path = '' )
 app.config [ 'SECRET_KEY' ] = Config.SECRET_KEY
 CORS ( app )
